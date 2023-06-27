@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Coding Dojo Wall</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="title"><h3>Coding Dojo Wall</h3></div>
+            <h3>Welcome, {{session['first_name']}}!</h3>
+            <a href="/logout">Log Out</a>
+        </div>
+    </header>
+    <div class="wall_page">
+        <div class="create_post">
+            <h4>What's On Your Mind? Create a new post:</h4>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            <form action="/create_post" method="post">
+                <textarea name="content" id="" cols="30" rows="10"></textarea>
+                <input type="hidden" name="user_id" value="{{user.id}}">
+                <div class="space"></div>
+                <input type="submit" name="Submit">
+            </form>
+        </div>
+        <hr>
+        <div class="dojo_wall">
+            <h4>All Community Posts</h4>
+            <div class="past_post">
+                {% for post in posts: %}
+                <p class="past_poster">{{post.user.first_name}} - {{post.created_at}}</p>
+                <p class="past_content">{{post.content}}</p>
+                {% if post.user.id == user.id: %}
+                <a href="/delete_post/{{post.id}}">Delete</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+#container{
+    display: flex;
+    margin: 30px;
+    justify-content: space-around;
+}
+h1{
+    font-size: 3em;
+    text-align: center;
+}
+h3{
+    font-size: 2em;
+    text-align: center;
+}
+h2{
+    font-size: 2.8em;
+    margin-bottom:20px;
+}
+h4{
+    font-size: 1.8em;
+}
+#register_box{
+    background-color: black;
+    color: white;
+    height: 550px;
+    width: 35%;
+    text-align: center;
+}
+#login_box{
+    background-color: blue;
+    color: white;
+    height: 550px;
+    width: 35%;
+    text-align: center;
+}
+.space{
+    height: 20px;
+}
+label{
+    font-size: 1.5em;
+}
+.flash{
+    color:red;
+    font-size: 1.2em;
+    margin:0;
+}
+#textarea{
+    height: 100px;
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    /* resize: none; disable resizing */
+}
+.create_post{
+    text-align: center;
+}
